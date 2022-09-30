@@ -15,6 +15,9 @@ class ColumbiaStudentResource:
         pw = os.environ.get("DBPW")
         h = os.environ.get("DBHOST")
 
+        # usr = "root"
+        # pw = "w4111kairuiyin."
+        # h = "localhost"
         conn = pymysql.connect(
             user=usr,
             password=pw,
@@ -28,6 +31,7 @@ class ColumbiaStudentResource:
     def get_by_key(key):
 
         sql = "SELECT * FROM f22_databases.columbia_students where guid=%s";
+        # sql = "SELECT * FROM f22_databases.columbia_student where uni=%s";
         conn = ColumbiaStudentResource._get_connection()
         cur = conn.cursor()
         res = cur.execute(sql, args=key)
